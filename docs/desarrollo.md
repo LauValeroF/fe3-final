@@ -56,7 +56,7 @@ Una vez que ya tenemos toda la estructura de nuestra aplicación podemos pasar a
 
 Con la información ya en mano pasamos a “rellenar” los huecos que dejamos en nuestra estructura anterior, suscribiendo nuestros componentes al contexto global (solo aquellos que necesiten información del mismo)
 
-### Paso 4: Funcionalidad de destacados
+### Paso 5: Funcionalidad de destacados
 
 Cada card deberá tener un botón que dispare la acción de guardar una card que queremos destacar, dentro del localStorage. Deberás utilizar useReducer para manejar esta lógica.
 

@@ -1,9 +1,8 @@
+// Home.jsx
 import React, { useEffect } from "react";
-import { useAppContext } from "../Components/utils/AppContext";
+import { useAppContext } from "../AppContext";
 import Card from "../Components/Card";
 import { Link } from "react-router-dom";
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
   const { state, dispatch } = useAppContext();
@@ -24,20 +23,25 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <main className={`content ${state.theme}`} >
-      <h1>Home</h1>
-      <div className="card-grid">
+    <div>
+      <h2>Listado de Dentistas</h2>
+      <div className="dentist-grid">
         {state.dentists.map((dentist) => (
           <div key={dentist.id} className="dentist-card">
             <Link to={`/dentist/${dentist.id}`}>
               <Card name={dentist.name} username={dentist.username} id={dentist.id} />
             </Link>
-
+            <button
+              onClick={() => dispatch({ type: "ADD_FAVORITE", payload: dentist })}
+              className="favButton"
+            >
+              ADD FAV
+            </button>
           </div>
         ))}
       </div>
-    </main>
-  )
-}
+    </div>
+  );
+};
 
-export default Home
+export default Home;
